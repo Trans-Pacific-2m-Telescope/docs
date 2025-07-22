@@ -417,8 +417,5 @@ The number of available returned codes for these 14 `request number` is listed a
 - **Code Type**: Identifies if the response is an `error code` or `status code`. This field is left blank for other data types.
 
 ---
-Article Update Log
 
-- README.md created by An-Li Tsai (2025/06/29).-
-- Last Update (2025/07/22).
 
