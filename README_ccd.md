@@ -35,13 +35,17 @@
 | 1047 | Set Save to Folder Path |  |  |  |  |
 | 1048 | Get Camera Parameters | Y/S | struct.pack(">IBBHH", 10, 128, 0, 1048, 0) |  |  |
 | 1049 | Expose & Shift N Lines | /S |  |  |  |
-| 1070 | Exchange Image and Cache | Y | struct.pack(">IBBHH", 10, 128, 0, 1070, 0) |  |  |
+| 1070 | Exchange Image and Cache | Y | struct.pack(">IBBHH", 10, 128, 1, 1070, 0) |  |  |
 | 1071 | Set Background Image |  |  |  |  |
 | 1072 | Subtract Background |  |  |  |  |
 
 
 
 ## ✳️ Abbreviations & Parameters Explanation
+- In the **"function"** column:  
+  - **Y** indicates that this function **needs to be implemented** and should be included in the code. If it is not marked with **Y**, then we **do not require** this function for our application.  
+  - **/S** indicates that this is a **server command**, not a CCD command.
+ 
 - **Mode:** data  mode: default in this project is 4
   - `1`: transmit to client
   - `2`: hold in buffer.
@@ -61,14 +65,14 @@
 - **f:** filenname of saving (end with null,b"\x00")
 - **len:** lengh of f(filename) note: if len=5 lenS means 5S.
 
-- **AcqMode (Acquistion Mode):**  default is 0
+- **AcqMode** (Acquistion Mode):  default is 0
   - '0': single Image
   - '1': avarage
   - '2': Multiple 
   - '3': Multiple Frames
   - '4': focus
 
-- **AcqType (Acquistion Types):**  default is 0
+- **AcqType** (Acquistion Types):  default is 0
   - `0`: Light
   - `1`: Dark
   - `2`: Test
@@ -76,7 +80,7 @@
   - `4`: TDI Internally Paced
   - `5`: TDI Externally Paced
 
-- **ROutNum (Readout Mode numbere):**  shoule between (0~9)
+- **ROutNum** (Readout Mode numbere):  shoule between (0~9)
 
 
 
