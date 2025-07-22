@@ -2,7 +2,7 @@
 
 
 
-* [Current Status of Taiwan team's work](Taiwan_team_work.md)
+* [Current Status of Taiwan team's work](README_taiwan_team.md)
 * [CCD communication](README_ccd.md)
 * [Telescope communication](README_telescope.md)
 
