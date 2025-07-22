@@ -1,6 +1,3 @@
-# Project Overview & Status Updates
-
-
 
 ## TCS Software - Taiwan team
 Taiwan team (NCUIA and ASIAA) is working on hardware communication, specifically for：
