@@ -14,7 +14,7 @@ TP2m team has six partners:
 - AMU (Aix-Marseille Université, France) 法國艾克斯-馬賽大學
 
 ## TP2m Telescope Control System (TCS) software
-*Note: The following TCS architecture is based on the current understanding and planning by the Taiwan team. The final design will be updated.
+(Note: The following TCS architecture is based on the current understanding and planning by the Taiwan team. The final design will be updated.)
 
 The current concept of the TP2m Control System (TCS) software is shown in the following schematic diagram.
 
