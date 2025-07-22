@@ -1,30 +1,6 @@
 # Project Overview & Status Updates
 
-## TP2m Telescope Control System (TCS) software
-(Note: The following TCS architecture is based on the current understanding and planning by the Taiwan team. The final design will be updated.)
 
-The current concept of the TP2m Control System (TCS) software is shown in the following schematic diagram.
-
-![TP2m Schematic diagram](./img/TP2m_schematic_diagram_20250703.png)
-(Image credit: An-Li Tsai)
-
-The TCS includes several modules.
-- **Telescope & Dome control (NCUIA's telescope)**
-- **CCD camera control (NCUIA's instrument)**
-- IR camera control (NCUIA's instrument)
-- Spectrometer control (UNAM's instrument)
-- Weather monitoring system
-- Scheduler
-- Alert system (ex. transient/ToO events…)
-- Data processor
-- Data storage/transfer/mirror site
-- Monitoring on UPS, power... 
-- Logs
-- Firewall
-- Proposal submission/review
-- **UI for observers**
-- **UI for engineers**
-- UI for proposal applicants/reviewers 
 
 ## TCS Software - Taiwan team
 Taiwan team (NCUIA and ASIAA) is working on hardware communication, specifically for：
