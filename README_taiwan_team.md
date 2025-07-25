@@ -65,8 +65,8 @@ Taiwan team (NCUIA and ASIAA) is working on hardware communication, specifically
  - Client Software
     - Linux Program: 
         - Status: In development.
-        - Developers: An-Li Tsai and Sheng-Feng Yen
-
+        - Developers: An-Li Tsai
+  
 ### 3. Control UI
 - UI mode: 
     - UI for Observers
