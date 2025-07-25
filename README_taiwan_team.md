@@ -64,7 +64,8 @@ Taiwan team (NCUIA and ASIAA) is working on hardware communication, specifically
     - OS: Linux
  - Client Software
     - Linux Program: 
-        - Status: In development.
+        - Status: In development. 
+        - Current progress: Command query and a simulator for sending commands.
         - Developer: An-Li Tsai
   
 ### 3. Control UI
