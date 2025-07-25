@@ -82,6 +82,7 @@ Taiwan team (NCUIA and ASIAA) is working on hardware communication, specifically
 ---
 
 ### Article Update Log
-- README.md created by An-Li Tsai (2025/07/03).
-- Update images (2025/07/04).
+- README.md created by An-Li Tsai (2025/07/03)
+- Update images (2025/07/04)
 - Update content (2025/07/22)
+- Update progress (2025/07/26)
