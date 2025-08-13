@@ -230,7 +230,7 @@ The sequence we need to use is probably:
 
     E
     O
-    DE CLOSE
+    DS CLOSE
 
 We need appropriate waits.
 
