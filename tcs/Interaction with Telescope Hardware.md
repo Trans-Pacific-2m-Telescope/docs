@@ -1,5 +1,10 @@
 # Interaction with Telescope Hardware
 
+## Control Connections
+
+- Can we have 6 control connections instead of only 4?
+- Is the 10 Hz interaction frequency for each connection or for all connections?
+
 ## telescopecontroller
 
 ### Status
