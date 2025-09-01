@@ -95,7 +95,7 @@ Enter 1/2/3 (default 1):
 ```
 $ python test_commands_batch.py
 ```
-有幾個 script 可測試：
+會出現以下選單：
 ```
 Select batch command file:
 1. test_commands.script [default]
