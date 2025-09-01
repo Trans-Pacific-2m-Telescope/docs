@@ -3,7 +3,7 @@
 ## 指令手冊版本比較重點 (60 pages)
 關於望遠鏡軟體的部份，我們跟 UNAM 討論過後，有提出新的要求以及關於使用手冊的內容需要釐清的部份。由於英文版手冊為 15年前 (2010) 的版本，日文手冊為去年 (2024) 的版本，內容我已經比對過。原本以為日文版應該是最完整的內容，但關於 Nasmyth 相關的指令以及狀態在日文版是缺失的，只在英文版中有提及。此外，指令、狀態、格式、數值範圍等在英文版與日文版有諸多衝突以及重複，我需要西村公司協助釐清。
 
-由於文件是要給包括 UNAM 的人員使用，因此是英文版，如果需要翻譯成日文的話，就麻煩您協助處理，請西村公司確認正確性為何。
+由於文件是要給包括 UNAM 的人員使用，因此是英文版，如果需要翻譯成日文的話，請翻譯林先生協助處理，請西村公司確認正確性為何。
 
 比較緊急或重要的要求是：
 1. 望遠鏡伺服器的連線數，根據英文版，只允許四個連線，我們的控制軟體需要六個連線，希望能增加連線數到六。
@@ -32,15 +32,13 @@
 ```
 $ pip install astropy
 ```
-所有最新版的測試檔案都會放在這個資料夾中：
-```
-https://github.com/Trans-Pacific-2m-Telescope/telescope_test/tree/main/2tim/
-```
-或者可以直接下載 ZIP 壓縮檔：
-```
-https://github.com/Trans-Pacific-2m-Telescope/telescope_test/blob/main/2tim.zip
-```
+所有最新版的測試檔案會以 email 寄送，檔案請勿公開外流。
+
 ### 測試方法
+
+每個測試檔案請執行至少五次，會自動紀錄結果到 log 檔案中。
+
+
 #### 沒有望遠鏡伺服器的狀態下，模擬連線，需要在本機打開兩個終端機視窗
 其中一個終端機視窗 (Terminal) 執行模擬伺服器程式：
 ```
@@ -49,7 +47,7 @@ $ python fake_server_advanced.py
 另一個終端機視窗 (Terminal) 執行望遠鏡控制程式：
 
 ```
-$ python commands_cli.py --batch test_commands.script
+$ python test_commands_batch.py --batch test_commands.script
 
 Select server to connect:
 1. Fake server (127.0.0.1:8765)
@@ -59,11 +57,12 @@ Enter 1/2/3 (default 1):
 ```
 預設 1 會連線到本機端的模擬伺服器。
 
-#### 有望遠鏡伺服器的狀態下，連線到望遠鏡伺服器，只要在本機打開一個終端機視窗
-一個終端機視窗 (Terminal) 執行望遠鏡控制程式：
+#### 有望遠鏡伺服器的狀態下，連線到望遠鏡伺服器，不需要執行 模擬伺服器程式
+
+只要在本機打開一個終端機視窗 (Terminal) 執行望遠鏡控制程式：
 
 ```
-$ python commands_cli.py --batch test_commands.script
+$ python test_commands_batch.py --batch test_commands.script
 
 Select server to connect:
 1. Fake server (127.0.0.1:8765)
@@ -72,3 +71,4 @@ Select server to connect:
 Enter 1/2/3 (default 1): 
 ```
 望遠鏡伺服器的 IP 與 Port 預設為選項 2。如果望遠鏡伺服器的 IP 有變動，可以選擇 3 自訂 IP 與 Port。
+
