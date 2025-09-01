@@ -36,10 +36,18 @@ $ pip install astropy
 
 ### 測試方法
 
-每個測試檔案請執行至少五次，會自動紀錄結果到 log 檔案中。
+每個測試檔案請執行至少五次，會自動紀錄結果到各自對應的 log 檔案中，請將 log 檔案一併帶回。
+<!-- 
+總共有三個測試檔案：
+| 測試檔案名稱 | 測試類型 |log 檔案名稱 |
+| --- | --- | --- |
+| test_commands_batch.py | 指令測試（測試輸入格式） | test_commands_batch.log |
+| test_commands_highfreq.py | 壓力測試（短時間內送大量指令） | test_commands_highfreq.log | -->
 
+#### 第一步：不管執行哪個測試程式，第一步都是先選擇望遠鏡伺服器 IP 與 Port
 
-#### 沒有望遠鏡伺服器的狀態下，模擬連線，需要在本機打開兩個終端機視窗
+**1. 沒有望遠鏡伺服器的狀態下，模擬連線，需要在本機打開兩個終端機視窗**
+
 其中一個終端機視窗 (Terminal) 執行模擬伺服器程式：
 ```
 $ python fake_server_advanced.py
@@ -47,8 +55,9 @@ $ python fake_server_advanced.py
 另一個終端機視窗 (Terminal) 執行望遠鏡控制程式：
 
 ```
-$ python test_commands_batch.py --batch test_commands.script
+$ python test_commands_batch.py
 ```
+
 會出現以下選單：
 ```
 Select server to connect:
@@ -59,12 +68,12 @@ Enter 1/2/3 (default 1):
 ```
 預設 1 會連線到本機端的模擬伺服器。
 
-#### 有望遠鏡伺服器的狀態下，連線到望遠鏡伺服器，不需要執行 模擬伺服器程式
+**2. 有望遠鏡伺服器的狀態下，連線到望遠鏡伺服器，不需要執行 模擬伺服器程式**
 
 只要在本機打開一個終端機視窗 (Terminal) 執行望遠鏡控制程式：
 
 ```
-$ python test_commands_batch.py --batch test_commands.script
+$ python test_commands_batch.py
 ```
 會出現以下選單：
 ```
@@ -76,3 +85,36 @@ Enter 1/2/3 (default 1):
 ```
 望遠鏡伺服器的 IP 與 Port 預設為選項 2。如果望遠鏡伺服器的 IP 有變動，可以選擇 3 自訂 IP 與 Port。
 
+#### 第二步：選擇測試檔案
+
+**1. 指令測試**
+
+測試指令以及參數的格式是否正確，預設會自動執行 `test_commands.script`，不用自行輸入。
+
+```
+$ python test_commands_batch.py
+```
+如果要指定其他的 script 檔案，可以用 --batch 參數指定，例如：
+```
+$ python test_commands_batch.py --batch other_test_commands.script
+```
+
+<!--
+**2. 壓力測試**
+
+短時間內送大量指令，此為望遠鏡伺服器可容許最短時間。
+
+```
+$ python test_commands_highfreq.py
+```
+
+選擇完 伺服器 IP 與 Port 之後會出現 interval 選單，預設為 0.1 秒，請三個選單都測試：
+
+```
+Select interval:
+1. 0.1 sec (100ms) [default]
+2. 0.2 sec (200ms)
+3. 0.05 sec (50ms)
+Enter 1/2/3 (default 1): 
+```
+-->
