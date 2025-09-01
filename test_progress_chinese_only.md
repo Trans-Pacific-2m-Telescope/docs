@@ -48,7 +48,9 @@ $ python fake_server_advanced.py
 
 ```
 $ python test_commands_batch.py --batch test_commands.script
-
+```
+會出現以下選單：
+```
 Select server to connect:
 1. Fake server (127.0.0.1:8765)
 2. Real server (192.168.11.111:8765)
@@ -63,7 +65,9 @@ Enter 1/2/3 (default 1):
 
 ```
 $ python test_commands_batch.py --batch test_commands.script
-
+```
+會出現以下選單：
+```
 Select server to connect:
 1. Fake server (127.0.0.1:8765)
 2. Real server (192.168.11.111:8765)
