@@ -95,9 +95,14 @@ Enter 1/2/3 (default 1):
 ```
 $ python test_commands_batch.py
 ```
-如果要指定其他的 script 檔案，可以用 --batch 參數指定，例如：
+有幾個 script 可測試：
 ```
-$ python test_commands_batch.py --batch other_test_commands.script
+Select batch command file:
+1. test_commands.script [default]
+2. test_commands_A_only.script
+3. test_commands_telescope_dome_mirror.script
+4. custom
+Enter 1/2/3/4 (default 1): 
 ```
 
 <!--
