@@ -47,9 +47,9 @@ $ pip install astropy
 
 #### 第一步：不管執行哪個測試程式，第一步都是先選擇望遠鏡伺服器 IP 與 Port
 
-**1. 沒有望遠鏡伺服器的狀態下，模擬連線，需要在本機打開兩個終端機視窗**
+**1. 沒有望遠鏡伺服器的狀態下，需要模擬連線：**
 
-其中一個終端機視窗 (Terminal) 執行模擬伺服器程式：
+需要在本機端打開**兩個**終端機視窗，其中一個終端機視窗 (Terminal) 執行模擬伺服器程式：
 ```
 $ python fake_server_advanced.py
 ```
@@ -69,9 +69,9 @@ Enter 1/2/3 (default 1):
 ```
 預設 1 會連線到本機端的模擬伺服器。
 
-**2. 有望遠鏡伺服器的狀態下，連線到望遠鏡伺服器，不需要執行 模擬伺服器程式**
+**2. 有望遠鏡伺服器的狀態下，直接連線到望遠鏡伺服器：**
 
-只要在本機打開一個終端機視窗 (Terminal) 執行望遠鏡控制程式：
+只要在本機打開**一個**終端機視窗 (Terminal) 執行望遠鏡控制程式：
 
 ```
 $ python test_commands_batch.py
@@ -90,7 +90,7 @@ Enter 1/2/3 (default 1):
 
 **1. 指令測試**
 
-測試指令以及參數的格式是否正確，預設會自動執行 `test_commands.script`，不用自行輸入。
+測試指令以及參數的格式是否正確，預設會自動執行 `test_commands_A_only.script`，不用自行輸入。
 
 ```
 $ python test_commands_batch.py
@@ -98,12 +98,17 @@ $ python test_commands_batch.py
 會出現以下選單：
 ```
 Select batch command file:
-1. test_commands.script [default]
-2. test_commands_A_only.script
-3. test_commands_telescope_dome_mirror.script
+1. test_commands_A_only.script [default]
+2. test_commands_telescope_dome_mirror.script
+3. test_move_telescope_mirror.script
 4. custom
 Enter 1/2/3/4 (default 1): 
 ```
+|檔名|作用|何時使用|
+|-|-|-|
+|test_commands_A_only.script|測試 A 指令 (望遠鏡狀態查詢) |望遠鏡不允許操作時，只測試伺服器對於 A 指令的反應|
+|test_commands_telescope_dome_mirror.script|測試望遠鏡、圓頂、次鏡的指令|望遠鏡雖然不允許操作，但仍可以測試伺服器對於望遠鏡、圓頂、次鏡指令的反應時使用|
+|test_move_telescope_mirror.script|測試移動望遠鏡、次鏡的指令格式|當允許操作望遠鏡移動的時候才操作|
 
 <!--
 **2. 壓力測試**
