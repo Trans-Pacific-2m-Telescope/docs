@@ -85,9 +85,9 @@ Enter 1/2/3 (default 1):
 
 ### 第二步：選擇測試檔案
 
-**1. Query 測試指令回應狀態**
+**1. 測試伺服器反應：**
 
-只測試望遠鏡的指令以及參數的格式是否正確：
+這個測試主要目的是要確認伺服器的回應狀態為何：
 
 ```
 $ python test_commands_query.py
@@ -107,10 +107,12 @@ Enter 1/2 (default 1):
 ```
 Select batch command file:
 1. test_commands_A_short.script [default]
-2. test_commands_A_long.script [default]
-3. test_commands_telescope_dome_secondary.script
-4. custom
-Enter 1/2/3/4 (default 1): 
+2. test_commands_A_long.script
+3. test_commands_secondary.script
+4. test_commands_telescope.script
+5. test_commands_dome.script
+6. custom
+Enter 1/2/3/4/5/6 (default 1): 
 ```
 
 
@@ -119,7 +121,10 @@ Enter 1/2/3/4 (default 1):
 |-|-|-|-|
 |test_commands_A_short.script|測試 A 指令 (望遠鏡狀態查詢) I |不論望遠鏡是否允許操作，只要允許伺服器連線，就測試伺服器對於 A 指令的反應。|5|
 |test_commands_A_long.script|測試 A 指令 (望遠鏡狀態查詢) II |不論望遠鏡是否允許操作，只要允許伺服器連線，就測試伺服器對於 A 指令的反應。|1|
-|test_commands_telescope_dome_secondary.script|測試望遠鏡、圓頂、次鏡的指令|當望遠鏡不允許操作，但允許與伺服器連線，則測試伺服器對於望遠鏡、圓頂、次鏡指令的反應。<br>如果望遠鏡不允許操作時，也不允許與伺服器連線測試指令，則這個檔案不測試。<br>若望遠鏡允許操作，則跳過這個檔案，直接進入下個測試流程。|5|
+|test_commands_secondary.script|測試次鏡的移動|(1)當望遠鏡不允許操作，但允許與伺服器連線，則測試伺服器對於次鏡移動的反應。<br>(2)如果望遠鏡不允許操作時，也不允許與伺服器連線測試指令，則這個檔案不測試。<br>(3)若望遠鏡允許操作，則跳過這個檔案，直接進入下個測試流程。|5|
+|test_commands_telescope.script|測試望遠鏡的移動|(1)當望遠鏡不允許操作，但允許與伺服器連線，則測試伺服器對於望遠鏡移動的反應。<br>(2)如果望遠鏡不允許操作時，也不允許與伺服器連線測試指令，則這個檔案不測試。<br>(3)若望遠鏡允許操作，則跳過這個檔案，直接進入下個測試流程。|5|
+|test_commands_dome.script|測試圓頂的移動|(1)圓頂尚未蓋好，當望遠鏡不允許操作，但允許與伺服器連線，則測試伺服器對於圓頂移動的反應。<br>(2)如果望遠鏡不允許操作時，也不允許與伺服器連線測試指令，則這個檔案不測試。<br>(3)若望遠鏡允許操作，則跳過這個檔案，直接進入下個測試流程。|5|
+
 
 如果要自行輸入指令，請選擇 2 互動模式 (Interactive mode)。
 ```
@@ -128,9 +133,7 @@ Enter command to send (type 'exit' or 'quit' to leave interactive mode):
 cmd>
 ```
 
-**2. Control 測試控制望遠鏡**
-
-
+**2. 測試控制望遠鏡**
 
 如果允許操控望遠鏡移動，則執行測試控制望遠鏡的指令。
 
@@ -150,18 +153,18 @@ Enter 1/2 (default 1):
 預設 1 為批次模式 (Batch mode)，會出現以下選單：
 ```
 Select batch command file:
-1. test_move_secondary.script [default]
-2. test_move_telescope.script
-3. test_move_dome.script
+1. test_commands_secondary.script [default]
+2. test_commands_telescope.script
+3. test_commands_dome.script
 4. custom
 Enter 1/2/3 (default 1): 
 ```
 
 |選取 Script 檔|作用|使用時機|測試次數|
 |-|-|-|-|
-|test_move_secondary.script|測試次鏡的移動|當允許操作望遠鏡移動的時候才使用|5|
-|test_move_telescope.script|測試望遠鏡的移動|當允許操作望遠鏡移動的時候才使用|5|
-|test_move_dome.script|測試圓頂的移動|圓頂尚未蓋好，但若允許測試圓頂指令時才使用|5|
+|test_commands_secondary.script|測試次鏡的移動|當允許操作望遠鏡移動的時候才使用|5|
+|test_commands_telescope.script|測試望遠鏡的移動|當允許操作望遠鏡移動的時候才使用|5|
+|test_commands_dome.script|測試圓頂的移動|圓頂尚未蓋好，但若允許測試圓頂指令時才使用|5|
 
 
 如果要自行輸入指令，請選擇 2 互動模式 (Interactive mode)。
@@ -170,23 +173,3 @@ Enter command to send (type 'exit' or 'quit' to leave interactive mode):
 
 cmd>
 ```
-
-<!--
-**2. 壓力測試**
-
-短時間內送大量指令，此為望遠鏡伺服器可容許最短時間。
-
-```
-$ python test_commands_highfreq.py
-```
-
-選擇完 伺服器 IP 與 Port 之後會出現 interval 選單，預設為 0.1 秒，請三個選單都測試：
-
-```
-Select interval:
-1. 0.1 sec (100ms) [default]
-2. 0.2 sec (200ms)
-3. 0.05 sec (50ms)
-Enter 1/2/3 (default 1): 
-```
--->
