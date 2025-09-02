@@ -106,24 +106,24 @@ Enter 1/2 (default 1):
 預設 1 為批次模式 (Batch mode)，會出現以下選單：
 ```
 Select batch command file:
-1. test_commands_A_short.script [default]
-2. test_commands_A_long.script
-3. test_commands_secondary.script
-4. test_commands_telescope.script
-5. test_commands_dome.script
+1. test_script_commands_A_short.txt [default]
+2. test_script_commands_A_long.txt
+3. test_script_commands_secondary.txt
+4. test_script_commands_telescope.txt
+5. test_script_commands_dome.txt
 6. custom
 Enter 1/2/3/4/5/6 (default 1): 
 ```
 
 
 
-|選取 Script 檔|作用|使用時機|測試次數|
-|-|-|-|-|
-|test_commands_A_short.script|測試 A 指令 (望遠鏡狀態查詢) I |不論望遠鏡是否允許操作，只要允許伺服器連線，就測試伺服器對於 A 指令的反應。|5|
-|test_commands_A_long.script|測試 A 指令 (望遠鏡狀態查詢) II |不論望遠鏡是否允許操作，只要允許伺服器連線，就測試伺服器對於 A 指令的反應。|1|
-|test_commands_secondary.script|測試次鏡的移動|(1)當望遠鏡不允許操作，但允許與伺服器連線，則測試伺服器對於次鏡移動的反應。<br>(2)如果望遠鏡不允許操作時，也不允許與伺服器連線測試指令，則這個檔案不測試。<br>(3)若望遠鏡允許操作，則跳過這個檔案，直接進入下個測試流程。|5|
-|test_commands_telescope.script|測試望遠鏡的移動|(1)當望遠鏡不允許操作，但允許與伺服器連線，則測試伺服器對於望遠鏡移動的反應。<br>(2)如果望遠鏡不允許操作時，也不允許與伺服器連線測試指令，則這個檔案不測試。<br>(3)若望遠鏡允許操作，則跳過這個檔案，直接進入下個測試流程。|5|
-|test_commands_dome.script|測試圓頂的移動|(1)圓頂尚未蓋好，當望遠鏡不允許操作，但允許與伺服器連線，則測試伺服器對於圓頂移動的反應。<br>(2)如果望遠鏡不允許操作時，也不允許與伺服器連線測試指令，則這個檔案不測試。<br>(3)若望遠鏡允許操作，則跳過這個檔案，直接進入下個測試流程。|5|
+|No.|選取 Script 檔|作用|使用時機|測試次數|
+|-|-|-|-|-|
+|1|test_script_commands_A_short.txt|測試 A 指令 (望遠鏡狀態查詢) I |不論望遠鏡是否允許操作，只要允許伺服器連線，就測試伺服器對於 A 指令的反應。|5|
+|2|test_script_commands_A_long.txt|測試 A 指令 (望遠鏡狀態查詢) II |不論望遠鏡是否允許操作，只要允許伺服器連線，就測試伺服器對於 A 指令的反應。|1|
+|3|test_script_commands_secondary.txt|測試次鏡的移動|(1)當望遠鏡不允許操作，但允許與伺服器連線，則測試伺服器對於次鏡移動的反應。<br>(2)如果望遠鏡不允許操作時，也不允許與伺服器連線測試指令，則這個檔案不測試。<br>(3)若望遠鏡允許操作，則跳過這個檔案，直接進入下個測試流程。|5|
+|4|test_script_commands_telescope.txt|測試望遠鏡的移動|(1)當望遠鏡不允許操作，但允許與伺服器連線，則測試伺服器對於望遠鏡移動的反應。<br>(2)如果望遠鏡不允許操作時，也不允許與伺服器連線測試指令，則這個檔案不測試。<br>(3)若望遠鏡允許操作，則跳過這個檔案，直接進入下個測試流程。|5|
+|5|test_script_commands_dome.txt|測試圓頂的移動|(1)圓頂尚未蓋好，當望遠鏡不允許操作，但允許與伺服器連線，則測試伺服器對於圓頂移動的反應。<br>(2)如果望遠鏡不允許操作時，也不允許與伺服器連線測試指令，則這個檔案不測試。<br>(3)若望遠鏡允許操作，則跳過這個檔案，直接進入下個測試流程。|5|
 
 
 如果要自行輸入指令，請選擇 2 互動模式 (Interactive mode)。
@@ -153,18 +153,18 @@ Enter 1/2 (default 1):
 預設 1 為批次模式 (Batch mode)，會出現以下選單：
 ```
 Select batch command file:
-1. test_commands_secondary.script [default]
-2. test_commands_telescope.script
-3. test_commands_dome.script
+1. test_script_commands_secondary.txt [default]
+2. test_script_commands_telescope.txt
+3. test_script_commands_dome.txt
 4. custom
 Enter 1/2/3 (default 1): 
 ```
 
 |選取 Script 檔|作用|使用時機|測試次數|
 |-|-|-|-|
-|test_commands_secondary.script|測試次鏡的移動|當允許操作望遠鏡移動的時候才使用|5|
-|test_commands_telescope.script|測試望遠鏡的移動|當允許操作望遠鏡移動的時候才使用|5|
-|test_commands_dome.script|測試圓頂的移動|圓頂尚未蓋好，但若允許測試圓頂指令時才使用|5|
+|test_script_commands_secondary.txt|測試次鏡的移動|當允許操作望遠鏡移動的時候才使用|5|
+|test_script_commands_telescope.txt|測試望遠鏡的移動|當允許操作望遠鏡移動的時候才使用|5|
+|test_script_commands_dome.txt|測試圓頂的移動|圓頂尚未蓋好，但若允許測試圓頂指令時才使用|5|
 
 
 如果要自行輸入指令，請選擇 2 互動模式 (Interactive mode)。
