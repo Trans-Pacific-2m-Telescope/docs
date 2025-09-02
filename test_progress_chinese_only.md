@@ -104,6 +104,9 @@ Select batch command file:
 4. custom
 Enter 1/2/3/4 (default 1): 
 ```
+
+三個檔案的使用時機說明如下：
+
 |檔名|作用|何時使用|
 |-|-|-|
 |test_commands_A_only.script|測試 A 指令 (望遠鏡狀態查詢) |望遠鏡不允許操作時，只測試伺服器對於 A 指令的反應|
