@@ -150,17 +150,19 @@ Enter 1/2 (default 1):
 預設 1 為批次模式 (Batch mode)，會出現以下選單：
 ```
 Select batch command file:
-1. test_move_telescope_mirror.script [default]
-2. test_move_telescope_dome.script
-3. custom
+1. test_move_secondary.script [default]
+2. test_move_telescope.script
+3. test_move_dome.script
+4. custom
 Enter 1/2/3 (default 1): 
 ```
 
 |選取 Script 檔|作用|使用時機|測試次數|
-|-|-|-|---|
-|test_move_telescope_mirror.script|測試望遠鏡、次鏡的移動|當允許操作望遠鏡移動的時候才使用|5|
-|test_move_telescope_dome.script|測試移動望遠鏡、圓頂的移動|圓頂尚未蓋好，但若允許測試圓頂指令時才使用|5|
-
+|-|-|-|-|
+|test_move_secondary.script|測試次鏡的移動|當允許操作望遠鏡移動的時候才使用|5|
+|test_move_telescope.script|測試望遠鏡的移動|當允許操作望遠鏡移動的時候才使用|5|
+|test_move_dome.script|測試圓頂的移動|圓頂尚未蓋好，但若允許測試圓頂指令時才使用|5|
+||||
 
 如果要自行輸入指令，請選擇 2 互動模式 (Interactive mode)。
 ```
