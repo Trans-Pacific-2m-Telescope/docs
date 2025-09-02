@@ -108,7 +108,7 @@ Enter 1/2 (default 1):
 Select batch command file:
 1. test_commands_A_short.script [default]
 2. test_commands_A_long.script [default]
-3. test_commands_telescope_dome_mirror.script
+3. test_commands_telescope_dome_secondary.script
 4. custom
 Enter 1/2/3/4 (default 1): 
 ```
@@ -119,7 +119,7 @@ Enter 1/2/3/4 (default 1):
 |-|-|-|-|
 |test_commands_A_short.script|測試 A 指令 (望遠鏡狀態查詢) I |不論望遠鏡是否允許操作，只要允許伺服器連線，就測試伺服器對於 A 指令的反應。|5|
 |test_commands_A_long.script|測試 A 指令 (望遠鏡狀態查詢) II |不論望遠鏡是否允許操作，只要允許伺服器連線，就測試伺服器對於 A 指令的反應。|1|
-|test_commands_telescope_dome_mirror.script|測試望遠鏡、圓頂、次鏡的指令|當望遠鏡不允許操作，但允許與伺服器連線，則測試伺服器對於望遠鏡、圓頂、次鏡指令的反應。<br>如果望遠鏡不允許操作時，也不允許與伺服器連線測試指令，則這個檔案不測試。<br>若望遠鏡允許操作，則跳過這個檔案，直接進入下個測試流程。|5|
+|test_commands_telescope_dome_secondary.script|測試望遠鏡、圓頂、次鏡的指令|當望遠鏡不允許操作，但允許與伺服器連線，則測試伺服器對於望遠鏡、圓頂、次鏡指令的反應。<br>如果望遠鏡不允許操作時，也不允許與伺服器連線測試指令，則這個檔案不測試。<br>若望遠鏡允許操作，則跳過這個檔案，直接進入下個測試流程。|5|
 
 如果要自行輸入指令，請選擇 2 互動模式 (Interactive mode)。
 ```
