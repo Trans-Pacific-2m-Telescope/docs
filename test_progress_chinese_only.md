@@ -157,7 +157,7 @@ Select batch command file:
 2. test_script_commands_telescope.txt
 3. test_script_commands_dome.txt
 4. custom
-Enter 1/2/3 (default 1): 
+Enter 1/2/3/4 (default 1): 
 ```
 
 |選取 Script 檔|作用|使用時機|測試次數|
