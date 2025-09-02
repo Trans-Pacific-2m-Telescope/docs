@@ -28,14 +28,11 @@
 
 ## 日本西村工廠現場測試 (2025/09/03~05)
 
-### 安裝 Python Package (用不到，可以不用安裝了)
-檢查過後發現只需要安裝這個套件，因此就不再另外建立執行檔了。
+檢查過後發現不需要安裝 astropy 這個套件，因此這一步不需要做。
 ```
 $ pip install astropy
 ```
-所有最新版的測試檔案會以 email 寄送，檔案請勿公開外流。
 
-### 測試方法
 
 每個測試檔案會自動紀錄結果到各自對應的 log 檔案中，請將 log 檔案一併帶回。
 <!-- 
@@ -45,7 +42,7 @@ $ pip install astropy
 | test_commands_batch.py | 指令測試（測試輸入格式） | test_commands_batch.log |
 | test_commands_highfreq.py | 壓力測試（短時間內送大量指令） | test_commands_highfreq.log | -->
 
-#### 第一步：不管執行哪個測試程式，第一步都是先選擇望遠鏡伺服器 IP 與 Port
+### 第一步：不管執行哪個測試程式，第一步都是先選擇望遠鏡伺服器 IP 與 Port
 
 **1. 沒有望遠鏡伺服器的狀態下，需要模擬連線：**
 
@@ -86,16 +83,27 @@ Enter 1/2/3 (default 1):
 ```
 望遠鏡伺服器的 IP 與 Port 預設為選項 2。如果望遠鏡伺服器的 IP 有變動，可以選擇 3 自訂 IP 與 Port。
 
-#### 第二步：選擇測試檔案
+### 第二步：選擇測試檔案
 
 **1. Query 測試指令回應狀態**
 
-只測試望遠鏡的指令以及參數的格式是否正確，預設會自動執行 `test_commands_A_only.script`，不用自行輸入。
+只測試望遠鏡的指令以及參數的格式是否正確：
 
 ```
 $ python test_commands_query.py
 ```
-會出現以下選單：
+選擇完 伺服器 IP 與 Port 之後，會出現以下選單：
+
+預設 1 為批次模式 (Batch mode)，有選單可選擇執行檔案。  
+如果要自行輸入指令，請選擇 2 互動模式 (Interactive mode)。
+
+```
+Select mode:
+1. Batch mode [default]
+2. Interactive mode
+Enter 1/2 (default 1): 
+```
+預設 1 為批次模式 (Batch mode)，會出現以下選單：
 ```
 Select batch command file:
 1. test_commands_A_short.script [default]
@@ -113,17 +121,33 @@ Enter 1/2/3/4 (default 1):
 |test_commands_A_long.script|測試 A 指令 (望遠鏡狀態查詢) II |不論望遠鏡是否允許操作，只要允許伺服器連線，就測試伺服器對於 A 指令的反應。|1|
 |test_commands_telescope_dome_mirror.script|測試望遠鏡、圓頂、次鏡的指令|當望遠鏡不允許操作，但允許與伺服器連線，則測試伺服器對於望遠鏡、圓頂、次鏡指令的反應。<br>如果望遠鏡不允許操作時，也不允許與伺服器連線測試指令，則這個檔案不測試。<br>若望遠鏡允許操作，則跳過這個檔案，直接進入下個測試流程。|5|
 
+如果要自行輸入指令，請選擇 2 互動模式 (Interactive mode)。
+```
+Enter command to send (type 'exit' or 'quit' to leave interactive mode):
 
-
+cmd>
+```
 
 **2. Control 測試控制望遠鏡**
 
-如果允許操控望遠鏡移動，則執行測試控制望遠鏡的指令，預設會自動執行 `test_move_telescope_mirror.script`，不用自行輸入。
+
+
+如果允許操控望遠鏡移動，則執行測試控制望遠鏡的指令。
 
 ```
 $ python test_commands_control.py
 ```
-會出現以下選單：
+選擇完 伺服器 IP 與 Port 之後，會出現以下選單：
+
+預設 1 為批次模式 (Batch mode)，有選單可選擇執行檔案。  
+如果要自行輸入指令，請選擇 2 互動模式 (Interactive mode)。
+```
+Select mode:
+1. Batch mode [default]
+2. Interactive mode
+Enter 1/2 (default 1): 
+```
+預設 1 為批次模式 (Batch mode)，會出現以下選單：
 ```
 Select batch command file:
 1. test_move_telescope_mirror.script [default]
@@ -132,11 +156,18 @@ Select batch command file:
 Enter 1/2/3 (default 1): 
 ```
 
-
 |選取 Script 檔|作用|使用時機|測試次數|
 |-|-|-|---|
 |test_move_telescope_mirror.script|測試望遠鏡、次鏡的移動|當允許操作望遠鏡移動的時候才使用|5|
 |test_move_telescope_dome.script|測試移動望遠鏡、圓頂的移動|圓頂尚未蓋好，但若允許測試圓頂指令時才使用|5|
+
+
+如果要自行輸入指令，請選擇 2 互動模式 (Interactive mode)。
+```
+Enter command to send (type 'exit' or 'quit' to leave interactive mode):
+
+cmd>
+```
 
 <!--
 **2. 壓力測試**
