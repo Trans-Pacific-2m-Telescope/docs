@@ -107,11 +107,11 @@ Enter 1/2/3/4 (default 1):
 
 **2. 三個檔案的使用時機說明如下：**
 
-|檔名|作用|何時使用|允許操作|不允許操作|
-|-|-|-|-|-|
-|test_commands_A_only.script|測試 A 指令 (望遠鏡狀態查詢) |望遠鏡不允許操作時，只測試伺服器對於 A 指令的反應|O|O|
-|test_commands_telescope_dome_mirror.script|測試望遠鏡、圓頂、次鏡的指令|望遠鏡雖然不允許操作，但仍可以測試伺服器對於望遠鏡、圓頂、次鏡指令的反應時使用|O|O|
-|test_move_telescope_mirror.script|測試移動望遠鏡、次鏡的指令格式|當允許操作望遠鏡移動的時候才操作|X|O|
+|檔名|作用|使用時機|
+|-|-|-|
+|test_commands_A_only.script|測試 A 指令 (望遠鏡狀態查詢) |不論望遠鏡是否允許操作，只測試伺服器對於 A 指令的反應|
+|test_commands_telescope_dome_mirror.script|測試望遠鏡、圓頂、次鏡的指令|望遠鏡雖然不允許操作，但允許與伺服器連線，則測試伺服器對於望遠鏡、圓頂、次鏡指令的反應|
+|test_move_telescope_mirror.script|測試移動望遠鏡、次鏡的指令格式|當允許操作望遠鏡移動的時候才使用|
 
 <!--
 **2. 壓力測試**
