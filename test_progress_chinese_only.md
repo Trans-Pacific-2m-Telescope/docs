@@ -37,7 +37,7 @@ $ pip install astropy
 
 ### 測試方法
 
-每個測試檔案請執行至少五次，會自動紀錄結果到各自對應的 log 檔案中，請將 log 檔案一併帶回。
+每個測試檔案會自動紀錄結果到各自對應的 log 檔案中，請將 log 檔案一併帶回。
 <!-- 
 總共有三個測試檔案：
 | 測試檔案名稱 | 測試類型 |log 檔案名稱 |
@@ -56,7 +56,7 @@ $ python fake_server_advanced.py
 另一個終端機視窗 (Terminal) 執行望遠鏡控制程式：
 
 ```
-$ python test_commands_batch.py
+$ python test_commands_query.py
 ```
 
 會出現以下選單：
@@ -74,7 +74,7 @@ Enter 1/2/3 (default 1):
 只要在本機打開**一個**終端機視窗 (Terminal) 執行望遠鏡控制程式：
 
 ```
-$ python test_commands_batch.py
+$ python test_commands_query.py
 ```
 會出現以下選單：
 ```
@@ -88,30 +88,55 @@ Enter 1/2/3 (default 1):
 
 #### 第二步：選擇測試檔案
 
-**1. 指令測試**
+**1. Query 測試指令回應狀態**
 
-測試指令以及參數的格式是否正確，預設會自動執行 `test_commands_A_only.script`，不用自行輸入。
+只測試望遠鏡的指令以及參數的格式是否正確，預設會自動執行 `test_commands_A_only.script`，不用自行輸入。
 
 ```
-$ python test_commands_batch.py
+$ python test_commands_query.py
 ```
 會出現以下選單：
 ```
 Select batch command file:
-1. test_commands_A_only.script [default]
-2. test_commands_telescope_dome_mirror.script
-3. test_move_telescope_mirror.script
+1. test_commands_A_short.script [default]
+2. test_commands_A_long.script [default]
+3. test_commands_telescope_dome_mirror.script
 4. custom
 Enter 1/2/3/4 (default 1): 
 ```
 
-**2. 三個檔案的使用時機說明如下：**
 
-|檔名|作用|使用時機|
-|-|-|-|
-|test_commands_A_only.script|測試 A 指令 (望遠鏡狀態查詢) |不論望遠鏡是否允許操作，只測試伺服器對於 A 指令的反應|
-|test_commands_telescope_dome_mirror.script|測試望遠鏡、圓頂、次鏡的指令|望遠鏡雖然不允許操作，但允許與伺服器連線，則測試伺服器對於望遠鏡、圓頂、次鏡指令的反應|
-|test_move_telescope_mirror.script|測試移動望遠鏡、次鏡|當允許操作望遠鏡移動的時候才使用|
+
+|選取 Script 檔|作用|使用時機|測試次數|
+|-|-|-|-|
+|test_commands_A_short.script|測試 A 指令 (望遠鏡狀態查詢) I |不論望遠鏡是否允許操作，只要允許伺服器連線，就測試伺服器對於 A 指令的反應。|5|
+|test_commands_A_long.script|測試 A 指令 (望遠鏡狀態查詢) II |不論望遠鏡是否允許操作，只要允許伺服器連線，就測試伺服器對於 A 指令的反應。|1|
+|test_commands_telescope_dome_mirror.script|測試望遠鏡、圓頂、次鏡的指令|當望遠鏡不允許操作，但允許與伺服器連線，則測試伺服器對於望遠鏡、圓頂、次鏡指令的反應。<br>如果望遠鏡不允許操作時，也不允許與伺服器連線測試指令，則這個檔案不測試。<br>若望遠鏡允許操作，則跳過這個檔案，直接進入下個測試流程。|5|
+
+
+
+
+**2. Control 測試控制望遠鏡**
+
+如果允許操控望遠鏡移動，則執行測試控制望遠鏡的指令，預設會自動執行 `test_move_telescope_mirror.script`，不用自行輸入。
+
+```
+$ python test_commands_control.py
+```
+會出現以下選單：
+```
+Select batch command file:
+1. test_move_telescope_mirror.script [default]
+2. test_move_telescope_dome.script
+3. custom
+Enter 1/2/3 (default 1): 
+```
+
+
+|選取 Script 檔|作用|使用時機|測試次數|
+|-|-|-|---|
+|test_move_telescope_mirror.script|測試望遠鏡、次鏡的移動|當允許操作望遠鏡移動的時候才使用|5|
+|test_move_telescope_dome.script|測試移動望遠鏡、圓頂的移動|圓頂尚未蓋好，但若允許測試圓頂指令時才使用|5|
 
 <!--
 **2. 壓力測試**
