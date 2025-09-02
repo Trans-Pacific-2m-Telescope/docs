@@ -162,7 +162,7 @@ Enter 1/2/3 (default 1):
 |test_move_secondary.script|測試次鏡的移動|當允許操作望遠鏡移動的時候才使用|5|
 |test_move_telescope.script|測試望遠鏡的移動|當允許操作望遠鏡移動的時候才使用|5|
 |test_move_dome.script|測試圓頂的移動|圓頂尚未蓋好，但若允許測試圓頂指令時才使用|5|
-||||
+
 
 如果要自行輸入指令，請選擇 2 互動模式 (Interactive mode)。
 ```
